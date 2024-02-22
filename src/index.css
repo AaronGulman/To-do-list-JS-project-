@@ -23,7 +23,7 @@ main{
 	width: 100%;
 	background: #000;
 	border: 20px solid hsl(0, 74%, 8%);
-	animation: resize 5s;
+	animation: resize 2s;
 	animation-fill-mode: forwards;
 }
 
@@ -44,13 +44,27 @@ main{
 .note{
 	display: flex;
 	justify-content: center;
-	position: absolute;
 	border-radius: 0 0 0 20%;
 	color: #000;
-	left: 100px;
-	top: 200px;
-	height: 400px;
-	width: 300px;
+	height: 100px;
+	width: 100px;
 	background: #f4e401;
 	z-index: -1;
+	animation: resizeNote;
+	animation-delay: 1s, 2s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes resizeNote {
+
+	100%{
+		border-radius: 0 0 0 20%;
+		color: #000;
+		transform: translate(-650px,0px);
+		height: 400px;
+		width: 300px;
+
+
+	}
 }
