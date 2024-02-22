@@ -1,9 +1,56 @@
+html,
 body{
 	margin: 0;
 	padding: 0;
 }
 
+body{
+	height: 100vh;
+	min-width: 100%;
+}
+
+main{
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 100%;
+	max-width: 100%;
+	padding-right: 100px;
+}
+
 .blackboard{
+	height: 100%;
+	width: 100%;
 	background: #000;
-	border: 10px solid #220505;
+	border: 20px solid hsl(0, 74%, 8%);
+	animation: resize 5s;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes resize {
+
+
+	100% {
+		right: 100px;
+		bottom:150px;
+		height: 50%;
+		width: 50%;
+
+	}
+	
+}
+
+.note{
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	border-radius: 0 0 0 20%;
+	color: #000;
+	left: 100px;
+	top: 200px;
+	height: 400px;
+	width: 300px;
+	background: #f4e401;
+	z-index: -1;
 }
