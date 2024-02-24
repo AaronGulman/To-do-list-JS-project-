@@ -9,11 +9,22 @@
 	<main>
 
 	<div class="blackboard" id="blackboard">
+		<ul id="ul">
+		<li id="list">
 		<div class="note" id="note">
 			<h1>Note</h1>
-			<label for="datepicker">Select a date:</label>
-			<input type="date" id="datepicker">
+			<div class="noteContent" id="noteContent">
+			<label for="inputDate"></label>
+			<input type="date" class="inputDate">
+			<textarea name="txtInfo" class="txtInfo" cols="30" rows="10"></textarea>
+			<div class="btnBox">
+				<img id="add" class="add" src="./assets/check.svg">
+				<img id="delete" class="delete" src="./assets/cancel.svg">
+			</div>
+			</div>
 		</div>
+		</li>
+	</ul>
 	</div>
 	</main>
 </body>
