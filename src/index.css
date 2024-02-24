@@ -92,6 +92,8 @@ textarea{
 	resize:none;
 	outline: none;
 	border: none;
+	height: 60%;
+	width: 80%;
 }
 
 
@@ -113,4 +115,16 @@ img{
 
 img:hover{
 	background: #fff;
+}
+
+.pinned{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0 0 0 20%;
+	color: #000;
+	height: 100px;
+	width: 100px;
+	background: #f4e401;
+	z-index: -1;
 }
