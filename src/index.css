@@ -19,12 +19,43 @@ main{
 }
 
 .blackboard{
+	display: grid;
 	height: 100%;
 	width: 100%;
 	background: #000;
 	border: 20px solid hsl(0, 74%, 8%);
 	animation: resize 2s;
 	animation-fill-mode: forwards;
+}
+
+ul{
+	display: grid;
+	grid-template-columns: repeat(5, 4fr);
+	grid-template-rows: repeat(4, 2fr);
+	grid-gap: 5px;
+	place-items: center;
+	margin: 0;
+	padding: 1%;
+}
+
+li:first-child{
+	display:inline-block;
+	border-radius: 5px;
+
+}
+
+li{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #f4e401;
+	color: #000;
+	border-radius: 0 0 0 20%;
+	height: 100px;
+	width: 100px;
+
+	
 }
 
 
@@ -50,7 +81,6 @@ main{
 	height: 100px;
 	width: 100px;
 	background: #f4e401;
-	z-index: -1;
 	animation: resizeNote;
 	animation-delay: 1s, 2s;
 	animation-duration: 1s;
@@ -126,5 +156,4 @@ img:hover{
 	height: 100px;
 	width: 100px;
 	background: #f4e401;
-	z-index: -1;
 }
