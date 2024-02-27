@@ -6,6 +6,7 @@ let inputDate = document.querySelector(".pickDate")
 let noteContent = document.getElementById("noteContent")
 let blackboard = document.getElementById("blackboard")
 let unsortedList  = document.getElementById("ul")
+let noteName = document.getElementById("noteName")
 noteContent.style.opacity = 1;
 
 function newNote(){
@@ -20,13 +21,12 @@ function newNote(){
 	let btnBox = document.createElement("div");
 	let addImg = document.createElement("img");
 	let deleteImg = document.createElement("img");
-	let listBox = document.createElement('div')
 
 
+	header.textContent = noteName.value;
 	addImg.src = "./assets/check.svg"
 	deleteImg.src = "./assets/cancel.svg"
 
-	listBox.classList.add("listBox")
 	noteContent.classList.add("noteContent")
 	label.setAttribute("for","inputDate")
 	addDate.setAttribute("type","date")
@@ -35,19 +35,19 @@ function newNote(){
 	textArea.classList.add("txtInfo")
 	btnBox.classList.add("btnBox")
 	newNote.classList.add("pinned");
-	noteList.classList.add("newList")
 
 
-	listBox.appendChild(noteList)
+	//make sure noteContent appears only during editing
 	noteList.appendChild(newNote)
-	newNote.append(header,noteContent)
+	newNote.append(header)
 	noteContent.append(label,addDate,textArea,btnBox);
 	btnBox.append(addImg,deleteImg);
-	unsortedList.appendChild(listBox);
+	unsortedList.appendChild(noteList);
 	}
 
 let addBtn = document.getElementById("add");
 addBtn.addEventListener("click",()=>{
+
 	newNote()
 	})
 
