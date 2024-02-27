@@ -33,9 +33,12 @@ ul{
 	grid-template-columns: repeat(5, 4fr);
 	grid-template-rows: repeat(4, 2fr);
 	grid-gap: 5px;
-	place-items: center;
+	place-items: start;
 	margin: 0;
 	padding: 1%;
+	overflow: scroll;
+
+	
 }
 
 li:first-child{
@@ -85,6 +88,8 @@ li{
 	animation-delay: 1s, 2s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
+	position: absolute;
+
 }
 
 @keyframes resizeNote {
