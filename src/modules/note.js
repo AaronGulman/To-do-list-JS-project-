@@ -20,11 +20,13 @@ function newNote(){
 	let btnBox = document.createElement("div");
 	let addImg = document.createElement("img");
 	let deleteImg = document.createElement("img");
+	let listBox = document.createElement('div')
 
 
 	addImg.src = "./assets/check.svg"
 	deleteImg.src = "./assets/cancel.svg"
 
+	listBox.classList.add("listBox")
 	noteContent.classList.add("noteContent")
 	label.setAttribute("for","inputDate")
 	addDate.setAttribute("type","date")
@@ -33,12 +35,15 @@ function newNote(){
 	textArea.classList.add("txtInfo")
 	btnBox.classList.add("btnBox")
 	newNote.classList.add("pinned");
+	noteList.classList.add("newList")
 
+
+	listBox.appendChild(noteList)
 	noteList.appendChild(newNote)
 	newNote.append(header,noteContent)
 	noteContent.append(label,addDate,textArea,btnBox);
 	btnBox.append(addImg,deleteImg);
-	unsortedList.appendChild(noteList);
+	unsortedList.appendChild(listBox);
 	}
 
 let addBtn = document.getElementById("add");
