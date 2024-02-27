@@ -5,14 +5,15 @@ let note = document.getElementById("note");
 let inputDate = document.querySelector(".pickDate")
 let noteContent = document.getElementById("noteContent")
 let blackboard = document.getElementById("blackboard")
-let noteList  = document.getElementById("ul")
+let unsortedList  = document.getElementById("ul")
 noteContent.style.opacity = 1;
 
 function newNote(){
 	//main elements
-	let pinnedNote = document.createElement("li")
-	let header = document.createElement("h1");
+	let noteList = document.createElement("li")
 	let newNote = document.createElement("div");
+	let header = document.createElement("h1");
+	let noteContent = document.createElement("div");
 	let label = document.createElement("label");
 	let addDate = document.createElement("input");
 	let textArea = document.createElement("textarea");
@@ -24,17 +25,20 @@ function newNote(){
 	addImg.src = "./assets/check.svg"
 	deleteImg.src = "./assets/cancel.svg"
 
+	noteContent.classList.add("noteContent")
 	label.setAttribute("for","inputDate")
 	addDate.setAttribute("type","date")
 	addDate.classList.add("inputDate")
 	textArea.setAttribute("name","txtInfo")
 	textArea.classList.add("txtInfo")
 	btnBox.classList.add("btnBox")
-
-	pinnedNote.append(header,newNote,label,addDate,textArea,btnBox);
-	btnBox.append(addImg,deleteImg);
 	newNote.classList.add("pinned");
-	noteList.appendChild(pinnedNote);
+
+	noteList.appendChild(newNote)
+	newNote.append(header,noteContent)
+	noteContent.append(label,addDate,textArea,btnBox);
+	btnBox.append(addImg,deleteImg);
+	unsortedList.appendChild(noteList);
 	}
 
 let addBtn = document.getElementById("add");
