@@ -111,6 +111,7 @@ width: 100%;
 font-size: 100%;
 opacity: 0;
 transition: opacity 1s ease-in;
+overflow: hidden;
 }
 
 .inputDate{
