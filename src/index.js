@@ -5,6 +5,6 @@ let blackboard = document.querySelector("#blackboard")
 
 
 
-setInterval(()=>{
+// setInterval(()=>{
 	addNote();
-},1250)
+// },1250)
