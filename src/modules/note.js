@@ -7,6 +7,9 @@ let noteContent = document.getElementById("noteContent")
 let blackboard = document.getElementById("blackboard")
 let unsortedList  = document.getElementById("ul")
 let noteName = document.getElementById("noteName")
+let main = document.querySelector("main")
+let xPosition = 0;
+let yPosition = 0;
 noteContent.style.opacity = 1;
 
 function newNote(){
@@ -42,13 +45,21 @@ function newNote(){
 	newNote.append(header)
 	noteContent.append(label,addDate,textArea,btnBox);
 	btnBox.append(addImg,deleteImg);
+	newNote.append(header)
 	unsortedList.appendChild(noteList);
 	}
 
 let addBtn = document.getElementById("add");
 addBtn.addEventListener("click",()=>{
-
 	newNote()
 	})
 
 }
+
+let delBtn = document.getElementById('delete')
+
+delBtn.addEventListener("click", ()=>{
+	main.appendChild(note)
+	note.classList.remove("note")
+	note.classList.add("noteReturnAnimated");
+})
