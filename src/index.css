@@ -23,9 +23,10 @@ main{
 	height: 100%;
 	width: 100%;
 	background: #000;
-	border: 20px solid hsl(0, 74%, 8%);
+	border: 20px solid hsl(31, 85%, 18%);
 	animation: resize 2s;
 	animation-fill-mode: forwards;
+	box-shadow: 2px 10px 10px rgba(0,0,0)
 }
 
 ul{
@@ -89,6 +90,8 @@ li{
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 	position: absolute;
+	box-shadow: 2px 5px 10px rgba(0,0,0)
+
 }
 
 @keyframes resizeNote {
@@ -178,6 +181,7 @@ li h1{
 	width: 100px;
 	background: #f4e401;
 	position: absolute;
+	box-shadow: 2px 5px 10px rgba(0,0,0);
 		border-radius: 0 0 0 20%;
 		color: #000;
 		transform: translate(-1086px,-30px);
@@ -185,7 +189,27 @@ li h1{
 		width: 300px;	
 		animation: aboveBoard 2s;
 		animation-fill-mode: forwards;
+		
 }
+
+
+.noteCopy{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 400px;
+	width: 300px;	
+	border-radius: 0 0 0 20%;
+	color: #000;
+	background: #f4e401;
+	position: absolute;
+	transform: translate(-1086px,-30px);
+	animation: flyIn 5s forwards;
+	z-index: -1;
+
+}
+
+
 
 
 @keyframes aboveBoard{
@@ -210,8 +234,28 @@ li h1{
 		10px -10px 0px #f4e401,
 		10px -0px 0px #f4e401;
 
+		/* transform: translate(-300px,330px) rotate(30deg) scale(0.4, 0.4); */
 
-
-		transform: translate(-300px,-260px) rotate(155deg) skewX(65deg) scale(0.2, 0.2);
+		transform: translate(-300px,-260px) rotate(155deg) skewX(65deg) scale(0.2, 0.1);
 	}
 }
+
+
+
+	@keyframes flyIn {
+		0% {
+			transform: translate(-500px,140px);
+
+			opacity: 1;
+		}
+		25%{
+			z-index: -1;
+		}
+		100% {
+			z-index: 1;
+			height: 100px;
+			width: 100px;
+			transform: translate(0, 0);
+			opacity: 0;
+		}
+	    }
