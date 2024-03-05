@@ -54,26 +54,73 @@ function newNote(){
 	unsortedList.appendChild(noteList);
 
 
-	noteList.appendChild(noteCopy)
+	unsortedList.appendChild(noteCopy)
+
+	setTimeout(()=>{
+		noteCopy.remove()
+	},5000)
+
 	}
 
 
 
 
-let addBtn = document.getElementById("add");
-addBtn.addEventListener("click",()=>{
-	newNote()
+	let addBtn = document.getElementById("add");
+	addBtn.addEventListener("click",()=>{
+		if(noteName.value && noteName.value.trim() != ""){
+			newNote()
+		}
+	
+		})
 
-	})
+
 
 let delBtn = document.getElementById('delete')
 
 delBtn.addEventListener("click", ()=>{
 	main.appendChild(note)
+	note.classList.add('noteReturnAnimated')
 	note.classList.remove("note")
-	note.classList.add("noteReturnAnimated");
+	note.classList.remove("noteResize")
+	setTimeout(()=>{
+		
+		if(!note.classList.contains('note')){
+			note.classList.add('swing')
+			note.addEventListener('click',()=>{
+				initialPosition();
+			})
+		}
+
+	},2000)
+
+	
+	
 })
 
+function initialPosition(){
+	note.classList.remove('noteReturnAnimated')
+
+		note.classList.add('noteInit')
+		note.classList.remove("swing")
+
+
+		setTimeout(()=>{
+			note.classList.remove('noteInit')
+			note.classList.add('note')
+			note.style.transform = "translate(-1086px,-30px)"
+
+
+		},1900)
+
+
+
+}
+
+// note.addEventListener('click',()=>{
+// 	setTimeout(()=>{
+// 		note.classList.add('swing')
+// },500)
+// })
 
 }
 
