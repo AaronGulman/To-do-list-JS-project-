@@ -7,7 +7,7 @@ let noteContent = document.getElementById("noteContent")
 let blackboard = document.getElementById("blackboard")
 let unsortedList  = document.getElementById("ul")
 let noteName = document.getElementById("noteName")
-let main = document.querySelector("main")
+let main = document.querySelector("#main")
 let xPosition = 0;
 let yPosition = 0;
 noteContent.style.opacity = 1;
@@ -54,8 +54,6 @@ addBtn.addEventListener("click",()=>{
 	newNote()
 	})
 
-}
-
 let delBtn = document.getElementById('delete')
 
 delBtn.addEventListener("click", ()=>{
@@ -63,3 +61,7 @@ delBtn.addEventListener("click", ()=>{
 	note.classList.remove("note")
 	note.classList.add("noteReturnAnimated");
 })
+
+
+}
+
