@@ -59,6 +59,7 @@ li{
 	height: 100px;
 	width: 100px;
 	overflow: hidden;
+	animation: fadeIn 4s;
 	
 }
 
@@ -82,19 +83,35 @@ li{
 	align-items: center;
 	border-radius: 0 0 0 20%;
 	color: #000;
-	height: 100px;
-	width: 100px;
+	height: 400px;
+	width: 300px;
 	background: #f4e401;
-	animation: resizeNote;
-	animation-delay: 1s, 2s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
 	position: absolute;
-	box-shadow: 2px 5px 10px rgba(0,0,0)
+	box-shadow: 2px 5px 10px rgba(0,0,0);
+
+	
 
 }
 
+.noteResize{
+	animation: resizeNote;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
 @keyframes resizeNote {
+	0%{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 0 0 0 20%;
+		color: #000;
+		height: 100px;
+		width: 100px;
+		background: #f4e401;
+		position: absolute;
+		box-shadow: 2px 5px 10px rgba(0,0,0)
+	}
 
 	100%{
 		border-radius: 0 0 0 20%;
@@ -164,10 +181,23 @@ img:hover{
 	height: 100px;
 	width: 100px;
 	background: #f4e401;
+	transform: opacity 0;
+	animation: fadeIn 4s;
+}
+
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+
 }
 
 li h1{
 	font-size: 100%;
+	
 }
 
 
@@ -187,9 +217,37 @@ li h1{
 		transform: translate(-1086px,-30px);
 		height: 400px;
 		width: 300px;	
-		animation: aboveBoard 2s;
+		animation: aboveBoard 2s ;
 		animation-fill-mode: forwards;
 		
+}
+
+
+.swing{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0 0 0 20%;
+	color: #000;
+	height: 100px;
+	width: 100px;
+	background: #f4e401;
+	position: absolute;
+	box-shadow: 2px 5px 10px rgba(0,0,0);
+	border-radius: 0 0 0 20%;
+	color: #000;
+	transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
+	height: 400px;
+	width: 300px;		
+	box-shadow:
+	20px -20px 0px #f4e401,
+	10px -10px 0px #f4e401,
+	10px -0px 0px #f4e401;
+	
+}
+.swing:hover{
+	animation: swing 2s forwards ;
+
 }
 
 
@@ -203,40 +261,81 @@ li h1{
 	color: #000;
 	background: #f4e401;
 	position: absolute;
-	transform: translate(-1086px,-30px);
-	animation: flyIn 5s forwards;
+	animation: flyIn 1s forwards;
 	z-index: -1;
 
 }
 
+.noteInit{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0 0 0 20%;
+	color: #000;
+	height: 100px;
+	width: 100px;
+	background: #f4e401;
+	position: absolute;
+	box-shadow: 2px 5px 10px rgba(0,0,0);
+	border-radius: 0 0 0 20%;
+	color: #000;
+	transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
+	height: 400px;
+	width: 300px;		
+	/* box-shadow:
+	20px -20px 0px #f4e401,
+	10px -10px 0px #f4e401,
+	10px -0px 0px #f4e401; */
+	animation: reverseAboveBoard 2s forwards;
+}
 
 
+@keyframes swing{
+	0%{
+		transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
+	}
+	50%{
+		transform: translate(-310px,330px) rotate(-15deg) scale(0.4, 0.4);
+	}
+	100%{
+		transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
+	}
+}
+
+
+@keyframes reverseAboveBoard{
+	0%{
+		transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
+		
+		box-shadow:
+		20px -20px 0px #f4e401,
+		10px -10px 0px #f4e401,5
+		10px -0px 0px #f4e401;
+	}
+
+	100%{
+
+		border-radius: 0 0 0 20%;
+		color: #000;
+		transform: translate(-1086px,-30px);
+		height: 400px;
+		width: 300px;
+
+	}
+}
 
 @keyframes aboveBoard{
 	0%{
 		transform: translate(-1086px,-30px);
 	}
-	/* 25%{
-		transform: translate(-500px,-150px);
-	}
-	50%{
-		transform: translate(-250px,-150px);
-	}
-	75%{
-		transform: translate(-125px,-200px);
-	} */
+
 	100%{
-		box-shadow: 60px -60px 0px #f4e401,
-		50px -50px 0px #f4e401,
-		40px -40px 0px #f4e401,
-		30px -30px 0px #f4e401,
+		box-shadow:
 		20px -20px 0px #f4e401,
 		10px -10px 0px #f4e401,
 		10px -0px 0px #f4e401;
 
-		/* transform: translate(-300px,330px) rotate(30deg) scale(0.4, 0.4); */
-
-		transform: translate(-300px,-260px) rotate(155deg) skewX(65deg) scale(0.2, 0.1);
+		transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
 	}
 }
 
@@ -244,12 +343,13 @@ li h1{
 
 	@keyframes flyIn {
 		0% {
-			transform: translate(-500px,140px);
-
+			transform: translate(-650px,0px);
 			opacity: 1;
 		}
-		25%{
+
+		40%{
 			z-index: -1;
+
 		}
 		100% {
 			z-index: 1;
@@ -259,3 +359,5 @@ li h1{
 			opacity: 0;
 		}
 	    }
+
+	    
