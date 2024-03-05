@@ -8,11 +8,15 @@ let blackboard = document.getElementById("blackboard")
 let unsortedList  = document.getElementById("ul")
 let noteName = document.getElementById("noteName")
 let main = document.querySelector("#main")
+
 let xPosition = 0;
 let yPosition = 0;
 noteContent.style.opacity = 1;
 
 function newNote(){
+	let noteCopy= note.cloneNode(true);
+
+
 	//main elements
 	let noteList = document.createElement("li")
 	let newNote = document.createElement("div");
@@ -30,6 +34,7 @@ function newNote(){
 	addImg.src = "./assets/check.svg"
 	deleteImg.src = "./assets/cancel.svg"
 
+	noteCopy.classList.add('noteCopy')
 	noteContent.classList.add("noteContent")
 	label.setAttribute("for","inputDate")
 	addDate.setAttribute("type","date")
@@ -47,11 +52,18 @@ function newNote(){
 	btnBox.append(addImg,deleteImg);
 	newNote.append(header)
 	unsortedList.appendChild(noteList);
+
+
+	noteList.appendChild(noteCopy)
 	}
+
+
+
 
 let addBtn = document.getElementById("add");
 addBtn.addEventListener("click",()=>{
 	newNote()
+
 	})
 
 let delBtn = document.getElementById('delete')
