@@ -63,46 +63,6 @@ function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,text
 
 	}
 
-	// noteElements.addBtn.addEventListener("click",()=>{
-	// 	if(noteElements.noteName.value && noteElements.noteName.value.trim() != ""){
-	// 		newNote()
-	// 	}
-	// })
-
-	// noteElements.delBtn.addEventListener('click', ()=>{
-	// 	noteElements.note.classList.remove('note')
-	// 	noteElements.note.setAttribute('class','noteReturnAnimated')
-	// 	createCoverNote()
-	// 	setInterval(()=>{
-	// 		noteElements.note.classList.remove('noteReturnAnimated')
-	// 		noteElements.note.classList.add('swing')
-	// 	},1900)
-	// })
-
-
-	// function createCoverNote(){
-	// 	if(noteElements.note.classList.contains('swing')){
-	// 		noteElements.note.classList.contains('swing').style.pointerEvents = 'none';
-	// 		noteElements.note.classList.contains('swing').style.userSelect = 'none'
-	// 	}
-	// 	let coverNote = document.createElement('div')
-	// 	coverNote.classList.add('coverNote')
-	// 	noteElements.note.appendChild(coverNote)
-		
-	// 	coverNote.addEventListener('click',noteBack)
-	// }
-
-	// function noteBack(){
-	// 	noteElements.note.classList.remove('swing')
-	// 	noteElements.note.classList.add('noteInit')
-	// 	console.log('Added')
-
-	// }
-
-
-
-
-
 	noteElements.addBtn.addEventListener("click",()=>{
 		if(noteElements.noteName.value && noteElements.noteName.value.trim() != ""){
 			newNote()
@@ -114,10 +74,12 @@ function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,text
 		noteElements.note.classList.remove('noteResize')
 		noteElements.note.setAttribute('class','noteReturnAnimated')
 		createCoverNote()
-		setInterval(()=>{
+		setTimeout(()=>{
 			noteElements.note.classList.remove('noteReturnAnimated')
 			noteElements.note.classList.add('swing')
+
 		},1900)
+
 	})
 
 
@@ -131,6 +93,7 @@ function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,text
 		noteElements.note.appendChild(coverNote)
 		
 		coverNote.addEventListener('click',()=>{
+			noteElements.note.classList.remove('swing')
 			coverNote.remove()
 			noteBack()
 		})
@@ -142,65 +105,9 @@ function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,text
 
 		setTimeout(()=>{
 			noteElements.note.classList.remove('noteInit')
-			noteElements.note.classList.remove('swing')
 		},1900)
 		noteElements.note.classList.add('note')
 
 		console.log('Added')
 	}
-
-
-// 	function noteReturnAnimation(){
-// 	note.classList.add('noteReturnAnimated')
-// 	main.appendChild(note)
-// 	// if(!note.classList.contains('noteInit'))
-// 	delBtn.disabled = true;
-
-// 	setTimeout(()=>{
-// 		note.classList.remove('noteReturnAnimated')
-// 		delBtn.disabled = true;
-
-// 	},2030)
-
-// 	note.classList.remove("note")
-// 	note.classList.remove("noteResize")
-// 	console.log('noteReturnAnimation is active')
-
-// }
-
-// function swingingAnimation(){
-// 	setTimeout(()=>{
-// 		if(!note.classList.contains('note')){
-// 			note.classList.add('swing')
-// 		};
-// 	},2000);
-// 	console.log('swingingAnimation is active')
-
-// }
-
-// function initialPosition(){
-// 	if(noteElements.note.classList.contains('noteReturnAnimated') && noteElements.note.classList.contains('swing')){
-// 		noteElements.note.classList.remove("swing")
-// 		console.log('swing is disabled')
-
-
-// 		if(!noteElements.note.classList.contains('note')){
-// 			noteElements.note.classList.add('noteInit')
-// 			console.log('noteinit is added')
-
-// 			if(noteElements.note.classList.contains('noteReturnAnimated')){
-// 				setTimeout(()=>{
-// 					noteElements.note.classList.remove('noteInit')
-// 					},1950)
-// 					console.log('noteInit is deleted')
-
-// 			}
-// 			noteElements.note.classList.add('note')
-// 			console.log('note class is added')
-// 			}
-// 		}
-// 	}
-
-
-	
 }
