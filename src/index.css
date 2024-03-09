@@ -88,9 +88,16 @@ li{
 	background: #f4e401;
 	position: absolute;
 	box-shadow: 2px 5px 10px rgba(0,0,0);
+	animation: back forwards;
 
-	
+}
 
+
+@keyframes back{
+	100%{
+		transform: translate(-1210px,-48px);
+
+	}
 }
 
 .noteResize{
@@ -214,14 +221,12 @@ li h1{
 	box-shadow: 2px 5px 10px rgba(0,0,0);
 		border-radius: 0 0 0 20%;
 		color: #000;
-		transform: translate(-1086px,-30px);
+		transform: translate(-1210px,-48px);
 		height: 400px;
 		width: 300px;	
-		animation: aboveBoard 2s ;
-		animation-fill-mode: forwards;
+		animation: aboveBoard 2s forwards;
 		
 }
-
 
 .swing{
 	display: flex;
@@ -246,7 +251,7 @@ li h1{
 	
 }
 .swing:hover{
-	animation: swing 2s forwards ;
+	animation: swing 1s forwards ;
 
 }
 
@@ -286,7 +291,7 @@ li h1{
 	20px -20px 0px #f4e401,
 	10px -10px 0px #f4e401,
 	10px -0px 0px #f4e401; */
-	animation: reverseAboveBoard 2s forwards;
+	animation: reverseAboveBoard 1s forwards;
 }
 
 
@@ -303,10 +308,10 @@ li h1{
 }
 
 
+
 @keyframes reverseAboveBoard{
 	0%{
 		transform: translate(-310px,330px) rotate(-10deg) scale(0.4, 0.4);
-		
 		box-shadow:
 		20px -20px 0px #f4e401,
 		10px -10px 0px #f4e401,5
@@ -317,7 +322,7 @@ li h1{
 
 		border-radius: 0 0 0 20%;
 		color: #000;
-		transform: translate(-1086px,-30px);
+		transform: translate(-1210px,-48px);
 		height: 400px;
 		width: 300px;
 
@@ -326,7 +331,7 @@ li h1{
 
 @keyframes aboveBoard{
 	0%{
-		transform: translate(-1086px,-30px);
+		transform: translate(-1210px,-48px);
 	}
 
 	100%{
@@ -339,9 +344,7 @@ li h1{
 	}
 }
 
-
-
-	@keyframes flyIn {
+@keyframes flyIn {
 		0% {
 			transform: translate(-650px,0px);
 			opacity: 1;
@@ -358,6 +361,4 @@ li h1{
 			transform: translate(0, 0);
 			opacity: 0;
 		}
-	    }
-
-	    
+}
