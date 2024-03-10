@@ -18,56 +18,57 @@ let xPosition = 0;
 let yPosition = 0;
 noteElements.noteContent.style.opacity = 1;
 
-function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,textArea,btnBox,addImg,deleteImg){
-	 noteCopy= noteElements.note.cloneNode(true);
+function newNoteAdded(){
+	if(noteElements.noteName.value && noteElements.noteName.value.trim() != ""){
+		let noteCopy= noteElements.note.cloneNode(true);
 
-	//main elements
-	 noteList = document.createElement("li")
-	 newNote = document.createElement("div");
-	 header = document.createElement("h1");
-	 noteContent = document.createElement("div");
-	 label = document.createElement("label");
-	 addDate = document.createElement("input");
-	 textArea = document.createElement("textarea");
-	 btnBox = document.createElement("div");
-	 addImg = document.createElement("img");
-	 deleteImg = document.createElement("img");
-
-	header.textContent = noteElements.noteName.value;
-	addImg.src = "./assets/check.svg"
-	deleteImg.src = "./assets/cancel.svg"
-
-	noteCopy.classList.add('noteCopy')
-	noteContent.classList.add("noteContent")
-	label.setAttribute("for","inputDate")
-	addDate.setAttribute("type","date")
-	addDate.classList.add("inputDate")
-	textArea.setAttribute("name","txtInfo")
-	textArea.classList.add("txtInfo")
-	btnBox.classList.add("btnBox")
-	newNote.classList.add("pinned");
-
-	//make sure noteContent appears only during editing
-	noteList.appendChild(newNote)
-	newNote.append(header)
-	noteContent.append(label,addDate,textArea,btnBox);
-	btnBox.append(addImg,deleteImg);
-	newNote.append(header)
-	noteElements.unsortedList.appendChild(noteList);
-
-	noteElements.unsortedList.appendChild(noteCopy)
-
-	setTimeout(()=>{
-		noteCopy.remove()
-	},5000)
-
-	}
-
-	noteElements.addBtn.addEventListener("click",()=>{
-		if(noteElements.noteName.value && noteElements.noteName.value.trim() != ""){
-			newNote()
+		//main elements
+		let noteList = document.createElement("li")
+		let newNote = document.createElement("div");
+		let header = document.createElement("h1");
+		let noteContent = document.createElement("div");
+		let label = document.createElement("label");
+		let addDate = document.createElement("input");
+		let textArea = document.createElement("textarea");
+		let btnBox = document.createElement("div");
+		let addImg = document.createElement("img");
+		let deleteImg = document.createElement("img");
+	
+		header.textContent = noteElements.noteName.value;
+		addImg.src = "./assets/check.svg"
+		deleteImg.src = "./assets/cancel.svg"
+	
+		noteCopy.classList.add('noteCopy')
+		noteContent.classList.add("noteContent")
+		label.setAttribute("for","inputDate")
+		addDate.setAttribute("type","date")
+		addDate.classList.add("inputDate")
+		textArea.setAttribute("name","txtInfo")
+		textArea.classList.add("txtInfo")
+		btnBox.classList.add("btnBox")
+		newNote.classList.add("pinned");
+	
+		//make sure noteContent appears only during editing
+		noteList.appendChild(newNote)
+		newNote.append(header)
+		noteContent.append(label,addDate,textArea,btnBox);
+		btnBox.append(addImg,deleteImg);
+		newNote.append(header)
+		noteElements.unsortedList.appendChild(noteList);
+	
+		noteElements.unsortedList.appendChild(noteCopy)
+	
+		setTimeout(()=>{
+			noteCopy.remove()
+		},5000)
+	
 		}
-	})
+}
+
+noteElements.addBtn.addEventListener("click",()=>{
+	newNoteAdded()
+		})
+	}
 
 	noteElements.delBtn.addEventListener('click', ()=>{
 		noteElements.note.classList.remove('note')
@@ -110,4 +111,3 @@ function newNote(noteCopy,noteList,newNote,header,noteContent,label,addDate,text
 
 		console.log('Added')
 	}
-}
