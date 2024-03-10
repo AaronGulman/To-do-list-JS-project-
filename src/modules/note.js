@@ -1,10 +1,11 @@
 let noteElements = {
 	note: document.querySelector("#note"),
-	inputDate: document.querySelector(".pickDate"),
+	inputDate: document.querySelector(".inputDate"),
 	noteContent: document.getElementById("noteContent"),
 	blackboard: document.getElementById("blackboard"),
 	unsortedList : document.getElementById("ul"),
 	noteName: document.getElementById("noteName"),
+	txtInfo: document.querySelector('.txtInfo'),
 	main: document.querySelector("#main"),
 	addBtn: document.getElementById("add"),
 	delBtn: document.getElementById('delete')
@@ -12,13 +13,13 @@ let noteElements = {
 
 
 
-export function addNote(){
+export function addNoteHandler(){
 
 let xPosition = 0;
 let yPosition = 0;
 noteElements.noteContent.style.opacity = 1;
 
-function newNoteAdded(){
+function addNote(){
 	if(noteElements.noteName.value && noteElements.noteName.value.trim() != ""){
 		let noteCopy= noteElements.note.cloneNode(true);
 
@@ -33,8 +34,16 @@ function newNoteAdded(){
 		let btnBox = document.createElement("div");
 		let addImg = document.createElement("img");
 		let deleteImg = document.createElement("img");
+		let editBtn = document.createElement('button')
 	
 		header.textContent = noteElements.noteName.value;
+		addDate.value = noteElements.inputDate.value;
+		textArea.value = noteElements.txtInfo.value;
+		
+		
+
+		editBtn.textContent = 'EDIT'
+		
 		addImg.src = "./assets/check.svg"
 		deleteImg.src = "./assets/cancel.svg"
 	
@@ -47,13 +56,15 @@ function newNoteAdded(){
 		textArea.classList.add("txtInfo")
 		btnBox.classList.add("btnBox")
 		newNote.classList.add("pinned");
+		editBtn.classList.add('editBtn')
 	
 		//make sure noteContent appears only during editing
+		
 		noteList.appendChild(newNote)
 		newNote.append(header)
 		noteContent.append(label,addDate,textArea,btnBox);
 		btnBox.append(addImg,deleteImg);
-		newNote.append(header)
+		newNote.append(header,editBtn)
 		noteElements.unsortedList.appendChild(noteList);
 	
 		noteElements.unsortedList.appendChild(noteCopy)
@@ -61,14 +72,37 @@ function newNoteAdded(){
 		setTimeout(()=>{
 			noteCopy.remove()
 		},5000)
+
+
+		deleteImg.addEventListener('click',()=>{
+			noteList.remove()
+		})
+
+		editBtn.addEventListener('click',()=>{
+		// let editWindow = document.createElement('div')
+		newNote.classList.add('editWindow')
+		newNote.classList.remove('pinned')
+		noteContent.style.opacity = 1;
+		newNote.append(header,noteContent,editBtn)
+
+		// editWindow = noteCopy.cloneNode(true)
+		document.body.appendChild(editWindow)
+		// let blurryScreen = document.createElement('div')
+		// blurryScreen.classList.add('blurryScreen')
+		// document.body.appendChild(blurryScreen)
+		// console.log('edit')
+		})
 	
 		}
 }
 
 noteElements.addBtn.addEventListener("click",()=>{
-	newNoteAdded()
+	addNote()
 		})
-	}
+
+
+
+}
 
 	noteElements.delBtn.addEventListener('click', ()=>{
 		noteElements.note.classList.remove('note')
@@ -111,3 +145,6 @@ noteElements.addBtn.addEventListener("click",()=>{
 
 		console.log('Added')
 	}
+
+
+	
