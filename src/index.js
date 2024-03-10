@@ -1,10 +1,10 @@
 import "./index.css"
-import { addNote } from "./modules/note";
+import { addNoteHandler } from "./modules/note";
 
 let blackboard = document.querySelector("#blackboard")
 
 
 
 // setInterval(()=>{
-	addNote();
+	addNoteHandler();
 // },1250)
