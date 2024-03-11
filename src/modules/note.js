@@ -32,19 +32,14 @@ function addNote(){
 		let addDate = document.createElement("input");
 		let textArea = document.createElement("textarea");
 		let btnBox = document.createElement("div");
-		let addImg = document.createElement("img");
 		let deleteImg = document.createElement("img");
 		let editBtn = document.createElement('button')
 	
 		header.textContent = noteElements.noteName.value;
 		addDate.value = noteElements.inputDate.value;
 		textArea.value = noteElements.txtInfo.value;
-		
-		
-
 		editBtn.textContent = 'EDIT'
 		
-		addImg.src = "./assets/check.svg"
 		deleteImg.src = "./assets/cancel.svg"
 	
 		noteCopy.classList.add('noteCopy')
@@ -63,45 +58,63 @@ function addNote(){
 		noteList.appendChild(newNote)
 		newNote.append(header)
 		noteContent.append(label,addDate,textArea,btnBox);
-		btnBox.append(addImg,deleteImg);
-		newNote.append(header,editBtn)
+		btnBox.append(deleteImg);
+		newNote.append(header,noteContent,editBtn)
 		noteElements.unsortedList.appendChild(noteList);
-	
 		noteElements.unsortedList.appendChild(noteCopy)
+
+		newNote.setAttribute('draggable','true')
+
+
 	
 		setTimeout(()=>{
 			noteCopy.remove()
-		},5000)
-
+		},1500)
 
 		deleteImg.addEventListener('click',()=>{
 			noteList.remove()
 		})
 
-		editBtn.addEventListener('click',()=>{
-		// let editWindow = document.createElement('div')
-		newNote.classList.add('editWindow')
-		newNote.classList.remove('pinned')
-		noteContent.style.opacity = 1;
-		newNote.append(header,noteContent,editBtn)
 
-		// editWindow = noteCopy.cloneNode(true)
-		document.body.appendChild(editWindow)
-		// let blurryScreen = document.createElement('div')
-		// blurryScreen.classList.add('blurryScreen')
-		// document.body.appendChild(blurryScreen)
-		// console.log('edit')
-		})
-	
+		if(newNote.classList.contains('pinned')){
+			editBtn.addEventListener('click', ()=>{
+				editHandler()
+				if(!noteElements.note.classList.contains('swing')){
+					noteElements.delBtn.click()
+				}
+			})
+		}
+		let isEdit = false;
+
+		function editHandler(){
+			
+				switch(isEdit){
+					case false:
+						console.log('case one')
+						noteContent.style.opacity = '1'
+						if(newNote.classList.contains('pinned')){
+							newNote.classList.remove('pinned')
+							newNote.classList.add('editWindow')
+						}
+						editBtn.textContent='OK'
+						break;
+						
+					case true:
+						console.log("case two")
+						newNote.classList.remove('editWindow');
+						newNote.classList.add('pinned');
+						editBtn.textContent = 'EDIT'
+						noteContent.style.opacity = '0'
+						break;
+					}
+						isEdit = !isEdit;			
+			}
 		}
 }
 
 noteElements.addBtn.addEventListener("click",()=>{
 	addNote()
 		})
-
-
-
 }
 
 	noteElements.delBtn.addEventListener('click', ()=>{
@@ -135,16 +148,10 @@ noteElements.addBtn.addEventListener("click",()=>{
 	}
 
 	function noteBack(){
-
 		noteElements.note.classList.add('noteInit')
 
 		setTimeout(()=>{
 			noteElements.note.classList.remove('noteInit')
-		},1900)
+		},1350)
 		noteElements.note.classList.add('note')
-
-		console.log('Added')
 	}
-
-
-	
