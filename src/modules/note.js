@@ -52,6 +52,7 @@ function addNote(){
 		btnBox.classList.add("btnBox")
 		newNote.classList.add("pinned");
 		editBtn.classList.add('editBtn')
+		header.classList.add('noteHeader')
 	
 		//make sure noteContent appears only during editing
 		
@@ -64,8 +65,9 @@ function addNote(){
 		noteElements.unsortedList.appendChild(noteCopy)
 
 		newNote.setAttribute('draggable','true')
-
-
+		
+		
+		    
 	
 		setTimeout(()=>{
 			noteCopy.remove()
@@ -96,6 +98,39 @@ function addNote(){
 							newNote.classList.remove('pinned')
 							newNote.classList.add('editWindow')
 						}
+
+						
+						document.addEventListener('dblclick', function(event) {
+							if (event.target.tagName === 'H1' && newNote.classList.contains('editWindow')) {
+							    handleHeaderChange(event);
+							}
+						    });
+
+						function handleHeaderChange(event) {
+							event.preventDefault();
+							const currentHeader = event.target.textContent;
+						    
+							const input = document.createElement('input');
+							input.type = 'text';
+							input.value = currentHeader;
+							input.classList.add('nameChange')
+						    
+							event.target.replaceWith(input);
+							input.focus();
+							input.addEventListener('keydown', handleInputKeyDown);
+						    }
+						    
+						    function handleInputKeyDown(event) {
+							if (event.key === 'Enter' || newNote.classlist.contains('pinned')) { 
+							    const newHeaderTxt = event.target.value;
+							    const newHeader = document.createElement('h1');
+							    newHeader.textContent = newHeaderTxt;
+							    event.target.replaceWith(newHeader);
+							    event.target.removeEventListener('keydown', handleInputKeyDown);
+							}
+						    }
+						    
+						    header.addEventListener('dblclick', handleHeaderChange);
 						editBtn.textContent='OK'
 						break;
 						
