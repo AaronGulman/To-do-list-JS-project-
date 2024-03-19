@@ -18,6 +18,7 @@ main{
 	padding-right: 100px;
 }
 
+
 .blackboard{
 	display: grid;
 	height: 100%;
@@ -60,6 +61,14 @@ li{
 	overflow: hidden;
 	animation: fadeIn 4s;
 	
+}
+
+li h1{
+	overflow: scroll;
+	height: 50px;
+	max-width: 90%;
+	text-align: center;
+	justify-content:center;
 }
 
 
@@ -324,24 +333,65 @@ li h1{
 	z-index: 10;
     }
 
-.cover{
+/* .cover{
 	filter: blur(10px);
 	height: 100%;
 	width: 100%;
 	z-index: 10;
 	position: absolute;
 	backdrop-filter: blur(10px);
+} */
+
+.nameChange{
+	outline: none;
+	margin-top: 10px;
+	height: 30px;
+	width: 150px;
+	border: none;
 }
 
-.folder {
-	background-color: #fff;
-	border: 1px solid #000;
-	width: 100px; /* Adjust width and height as needed */
-	height: 50px;
-	padding: 10px;
-	cursor: pointer;
-    }
-    
+
+/* ---------------------------- */
+
+.newProject{
+	height: 50%;
+	background:#000;
+	position: fixed;
+	left: -350px;
+	bottom: 40px;
+	transform: rotate(90deg);
+	padding: 1%;
+}
+
+.newProjectClicked{
+	height: 50%;
+	background:#000;
+	position: fixed;
+	left: 0px;
+	bottom: 40px;
+	transform: rotate(90deg);
+	padding: 1%;
+}
+
+@keyframes newProjectClicked{
+	100%{
+		left: 0px;
+	}
+}
+
+@keyframes newProjectClickedBack{
+	100%{
+		left: -350px;;
+	}
+}
+
+.createNewProjectText{
+	width: 100%;
+	color: #fff;
+	font-size: 30px;
+	transform: rotate(-180deg);
+
+}
 
 @keyframes resizeEditor {
 	0% {
@@ -365,31 +415,6 @@ li h1{
 	    top: 25%;
 	}
     }
-
- @keyframes editingMode{
-	0%{
-		pointer-events: none;
-		border-radius: 0 0 0 20%;
-		color: #000;
-		height: 400px;
-		width: 300px;
-	}
-
-	100%{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		border-radius: 0 0 0 20%;
-		color: #000;
-		height: 100px;
-		width: 100px;
-		background: #f4e401;
-		position: absolute;
-		box-shadow: 2px 5px 10px rgba(0,0,0);
-		
-	}
-}
- 
 
 @keyframes swing{
 	0%{
