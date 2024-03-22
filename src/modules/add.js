@@ -23,21 +23,23 @@ export function newProject(){
 
 	createNewProjectText.textContent = 'Create a new project'
 	
-	newProject.addEventListener('click',()=>{
-		newProject.style.animation = 'newProjectClicked 2s forwards'
-		setTimeout(()=>{
-			newProject.classList.remove('newProject')
-			newProject.classList.add('newProjectClicked');
-		},2000)
-	})
-
-	newProject.addEventListener('dblclick',()=>{
-
-		newProject.style.animation = 'newProjectClickedBack 2s forwards'
-		setTimeout(()=>{
-			newProject.classList.remove('newProjectClicked');
-			newProject.classList.add('newProject')
-
-		},2000)
-	})
+	newProject.addEventListener('click', function(event) {
+		switch (event.type) {
+		    case 'click':
+			newProject.style.animation = 'newProjectClicked 2s forwards';
+			setTimeout(() => {
+			    newProject.classList.remove('newProject');
+			    newProject.classList.add('newProjectClicked');
+			}, 2000);
+			break;
+		    case 'dblclick':
+			newProject.style.animation = 'newProjectClickedBack 2s forwards';
+			setTimeout(() => {
+			    newProject.classList.remove('newProjectClicked');
+			    newProject.classList.add('newProject');
+			}, 2000);
+			break;
+		    default:
+			break;
+		}})
 }
