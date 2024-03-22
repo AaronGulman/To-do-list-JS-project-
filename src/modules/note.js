@@ -15,8 +15,6 @@ let noteElements = {
 
 export function addNoteHandler(){
 
-let xPosition = 0;
-let yPosition = 0;
 noteElements.noteContent.style.opacity = 1;
 
 function addNote(){
@@ -66,8 +64,6 @@ function addNote(){
 
 		newNote.setAttribute('draggable','true')
 		
-		
-		    
 	
 		setTimeout(()=>{
 			noteCopy.remove()
@@ -101,7 +97,7 @@ function addNote(){
 
 						
 						document.addEventListener('dblclick', function(event) {
-							if (event.target.tagName === 'H1' && newNote.classList.contains('editWindow')) {
+							if (newNote.classList.contains('editWindow')) {
 							    handleHeaderChange(event);
 							}
 						    });
@@ -113,6 +109,7 @@ function addNote(){
 							const input = document.createElement('input');
 							input.type = 'text';
 							input.value = currentHeader;
+							input.setAttribute("maxlength","11")
 							input.classList.add('nameChange')
 						    
 							event.target.replaceWith(input);
