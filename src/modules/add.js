@@ -1,3 +1,8 @@
+
+let uList = document.createElement('ul')
+let lProject = document.createElement('li')
+lProject.classList.add('lProject')
+
 let noteElements = {
 	note: document.querySelector("#note"),
 	inputDate: document.querySelector(".inputDate"),
@@ -30,33 +35,19 @@ export function newProject(){
 	elTitleBox.appendChild(createNewProjectText)
 	newProject.append(projectBoard,elTitleBox)
 
+
+
+	uList.appendChild(lProject)
+
 	let addProject = document.createElement('img')
-	addProject.src = '../assets/plus.svg'
-	projectBoard.append(addProject)
+	addProject.classList.add('addProjectImg')
+	addProject.src = './assets/plus.svg'
+
+	lProject.append(addProject)
+	projectBoard.append(uList)
 	
-	newProject.addEventListener('click', function(event) {
-		switch (event.type) {
-		    case 'click':
-			setTimeout(() => {
-			    newProject.classList.remove('newProject');
-			    newProject.classList.add('newProjectClicked');
-			}, 2000);
-			newProject.style.animation = 'newProjectClicked 2s forwards';
 
-			break;
-		    case 'dblclick':
-			setTimeout(() => {
-			    newProject.classList.remove('newProjectClicked');
-			    newProject.classList.add('newProject');
-			}, 2000);
-			newProject.style.animation = 'newProjectClickedBack 2s forwards';
-			break;
-		    default:
-			break;
-		}})
-
-		newProject.addEventListener('click', ()=>{
-
+	elTitleBox.addEventListener('click', ()=>{
 
 			if(newProject.classList.contains('newProject')){
 				newProject.style.animation = 'newProjectClicked 2s forwards';
@@ -75,9 +66,17 @@ export function newProject(){
 			}
 		})
 
+
+		addProject.addEventListener('click', ()=>{
+			projectAdded()
+		})
+
 }
 
-function addProject(folder){
-	let plusProject = document.createElement('div')
+function projectAdded(projectAdded){
+	projectAdded = document.createElement('li')
+	projectAdded.classList.add('projectAdded')
+	uList.append(projectAdded)
 	
+	alert('hello')
 }
