@@ -26,20 +26,43 @@ export function newProject(){
 	newProject.addEventListener('click', function(event) {
 		switch (event.type) {
 		    case 'click':
-			newProject.style.animation = 'newProjectClicked 2s forwards';
 			setTimeout(() => {
 			    newProject.classList.remove('newProject');
 			    newProject.classList.add('newProjectClicked');
 			}, 2000);
+			newProject.style.animation = 'newProjectClicked 2s forwards';
+
 			break;
 		    case 'dblclick':
-			newProject.style.animation = 'newProjectClickedBack 2s forwards';
 			setTimeout(() => {
 			    newProject.classList.remove('newProjectClicked');
 			    newProject.classList.add('newProject');
 			}, 2000);
+			newProject.style.animation = 'newProjectClickedBack 2s forwards';
 			break;
 		    default:
 			break;
 		}})
+
+		newProject.addEventListener('click', ()=>{
+
+
+			if(newProject.classList.contains('newProject')){
+				newProject.style.animation = 'newProjectClicked 2s forwards';
+
+				setTimeout(() => {
+				    newProject.classList.remove('newProject');
+				    newProject.classList.add('newProjectClicked');
+				}, 2000);
+			}else{
+				newProject.style.animation = 'newProjectClickedBack 2s forwards';
+
+				setTimeout(() => {
+				newProject.classList.remove('newProjectClicked');
+				newProject.classList.add('newProject');
+			    }, 2000);
+			}
+		})
+
+
 }
