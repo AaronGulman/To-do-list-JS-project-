@@ -6,7 +6,7 @@ let blackboard = document.querySelector("#blackboard")
 
 
 
-// setInterval(()=>{
+
 	newProject();
 	addNoteHandler();
-// },1250)
+

@@ -397,9 +397,29 @@ li h1{
 }
 
 .projectBoard{
+	display: grid;
 	height: 100%;
 	width: 100%;
 	background: #3f3f3f;
+	overflow: scroll;
+
+}
+
+
+.lProject{
+	height: 50px;
+	width: 50px;
+}
+.addProjectImg{
+	height: 100%;
+	width: 100%;
+	src: url('./assets/check.svg');
+	z-index: 10;
+}
+.projectAdded{
+	height: 50px;
+	width: 50px;
+	background: #f4e401;
 }
 
 @keyframes newProjectClicked{
