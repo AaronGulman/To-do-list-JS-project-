@@ -17,11 +17,22 @@ export function newProject(){
 	newProject.classList.add('newProject')
 	document.body.appendChild(newProject)
 
+	let elTitleBox = document.createElement('div')
+	elTitleBox.classList.add('elTitleBox')
+
 	let createNewProjectText = document.createElement('h1');
 	createNewProjectText.classList.add('createNewProjectText')
-	newProject.appendChild(createNewProjectText)
 
 	createNewProjectText.textContent = 'Create a new project'
+
+	let projectBoard = document.createElement('div')
+	projectBoard.classList.add('projectBoard')
+	elTitleBox.appendChild(createNewProjectText)
+	newProject.append(projectBoard,elTitleBox)
+
+	let addProject = document.createElement('img')
+	addProject.src = '../assets/plus.svg'
+	projectBoard.append(addProject)
 	
 	newProject.addEventListener('click', function(event) {
 		switch (event.type) {
@@ -64,5 +75,9 @@ export function newProject(){
 			}
 		})
 
+}
 
+function addProject(folder){
+	let plusProject = document.createElement('div')
+	
 }
