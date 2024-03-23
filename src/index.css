@@ -38,7 +38,7 @@ ul{
 	place-items: center;
 	margin: 0;
 	padding: 1%;
-	overflow: scroll;
+	overflow-y: scroll;
 
 	
 }
@@ -64,7 +64,6 @@ li{
 }
 
 li h1{
-	overflow: scroll;
 	height: 50px;
 	max-width: 90%;
 	text-align: center;
@@ -354,44 +353,68 @@ li h1{
 /* ---------------------------- */
 
 .newProject{
-	height: 50%;
-	background:#000;
-	position: fixed;
-	left: -350px;
-	bottom: 40px;
-	transform: rotate(90deg);
-	padding: 1%;
-}
-
-.newProjectClicked{
-	height: 50%;
-	background:#000;
+	display: flex;
+	height: 400px;
+	width: 700px;
+	background: #000;
 	position: fixed;
 	left: 0px;
 	bottom: 40px;
-	transform: rotate(90deg);
 	padding: 1%;
+	transform: translateX(-650px);
+}
+
+.newProjectClicked{
+	display: flex;
+	height: 400px;
+	width: 700px;
+	background: #000;
+	position: fixed;
+	left: 0px;
+	bottom: 40px;
+	padding: 1%;
+}
+
+.elTitleBox{
+	display: flex;
+	justify-content:center;
+	height: 100%;
+	width: 80px;
+	align-items: center;
+
+}
+
+.createNewProjectText{
+	width: 300px;
+	height: 50px;
+	color: #ffffff;
+	font-size: 30px;
+	transform: rotate(-90deg);
+	text-align: center;
+	margin-left: 50px;
+	position: absolute;
+
+}
+
+.projectBoard{
+	height: 100%;
+	width: 100%;
+	background: #3f3f3f;
 }
 
 @keyframes newProjectClicked{
 	100%{
-		left: 0px;
+		transform: translateX(0px);
 	}
 }
 
 @keyframes newProjectClickedBack{
 	100%{
-		left: -350px;;
+		transform: translateX(-650px);
 	}
 }
 
-.createNewProjectText{
-	width: 100%;
-	color: #fff;
-	font-size: 30px;
-	transform: rotate(-180deg);
 
-}
 
 @keyframes resizeEditor {
 	0% {
