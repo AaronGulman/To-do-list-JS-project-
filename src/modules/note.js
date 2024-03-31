@@ -1,3 +1,7 @@
+//https://console.firebase.google.com/u/0/project/to-do-list-b044f/overview
+//https://firebase.google.com/docs/web/setup?hl=en&authuser=0
+//https://firebase.google.com/docs/hosting/quickstart?hl=en&authuser=0
+
 let noteElements = {
 	note: document.querySelector("#note"),
 	inputDate: document.querySelector(".inputDate"),
